@@ -1,5 +1,4 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class Graph {
@@ -11,6 +10,7 @@ public class Graph {
     int [] degrees;
 
     int numberOfColorsUsed = 0;
+    int numberOfNodesColored = 0;
 
     Set<Integer> uniqueColors = new HashSet<Integer>();
     Set<Integer> temporary = new HashSet<Integer>();
@@ -28,13 +28,16 @@ public class Graph {
         graph[b][a] = 1;
     }
 
-    public void setColors(int [] col){
-        nodeColors = col;
-        //add all unique colors to our set
-        for (int el : nodeColors)
-            if (el != 0)
+    public void setColors() {
+        // add all unique colors to our set
+        int temp = 0;
+        for (int el : nodeColors){
+            if (el != 0) {
                 uniqueColors.add(el);
-
+                temp++;
+            }
+        }
+        numberOfNodesColored = temp;
         numberOfColorsUsed = uniqueColors.size();
     }
 
@@ -54,7 +57,7 @@ public class Graph {
     }
 
     Set<Integer> getSaturatedColors(int node){
-        //get all adjacent nodes that are differently colored
+        // get all adjacent nodes that are differently colored
         temporary.clear();
 
         for (int i=0; i<V; i++)
@@ -65,9 +68,9 @@ public class Graph {
     }
 
     int selectNodeToColor(){
-        //gets saturation degrees of all nodes yet colored
-        //tracks index of highest saturated node
-        //returns index of node to be colored
+        // gets saturation degrees of all nodes yet colored
+        // tracks index of highest saturated node
+        // returns index of node to be colored
 
         int max = -1;
         int index = -1; //will not result in outofboundsexception
@@ -78,12 +81,42 @@ public class Graph {
                     max = curr;
                     index = i;
                 }
-                //perhaps add check for if max == curr and base off node degree
+                // perhaps add check for if max == curr and base off node degree
             }
         }//for
-
         return index;
+    }
 
+    void assignColor(){
+        //assigns a singular color
+
+        // determines whether node qualifies to use a pre-existing color
+        // or whether it should be assigned a new color
+        setColors();
+        int node = selectNodeToColor();
+
+        Set<Integer> colorsAvailable = new HashSet<>(uniqueColors);
+        colorsAvailable.removeAll(getSaturatedColors(node));
+
+        // if there is a pre-existing color that is not adjacent to this node
+        // meaning the set of colorsAvailable is not empty,
+        // then we assign that node to that color
+        int kolor;
+
+        if (!colorsAvailable.isEmpty()) {
+            Iterator<Integer> it = colorsAvailable.iterator();
+            kolor = it.next();
+        } else {
+            kolor = Collections.max(uniqueColors) + 1;
+        }
+        nodeColors[node] = kolor;
+        setColors(); //updates unique colors and counts colored nodes
+    }
+
+    void findMinimalColoring(){
+        while (numberOfNodesColored < V){
+            assignColor();
+        }
     }
 
     void print(){
@@ -100,5 +133,10 @@ public class Graph {
         }
 
         System.out.println("--------------------------------\n");
+    }
+
+    void printMinimalColoring(){
+        System.out.println("The minimum number of colors needed is: " + uniqueColors.size());
+        System.out.println("Minimal coloring is: " + Arrays.toString(nodeColors));
     }
 }

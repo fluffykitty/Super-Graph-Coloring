@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +13,6 @@ public class Main {
 
             n = scanner.nextInt();
             m = scanner.nextInt();
-            int [] col = new int[n];
 
             Graph g = new Graph(n);
 
@@ -27,15 +25,16 @@ public class Main {
 
             //setting nodeColors of each node
             for (int j=0; j<n; j++)
-                col[j] = scanner.nextInt();
+                g.nodeColors[j] = scanner.nextInt();
 
-            g.setColors(col);
             for (int el : g.uniqueColors)
                 System.out.println("el # " + el);
 
             g.print();
             g.getDegrees();
-            System.out.println(Arrays.toString(g.degrees));
+
+            g.findMinimalColoring();
+            g.printMinimalColoring();
 
         }
         catch (FileNotFoundException e){
