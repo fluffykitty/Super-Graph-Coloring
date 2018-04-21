@@ -25,11 +25,13 @@ public class Main {
                 g.addEdge(a-1,b-1);
             }
 
-            //setting colors of each node
+            //setting nodeColors of each node
             for (int j=0; j<n; j++)
                 col[j] = scanner.nextInt();
 
             g.setColors(col);
+            for (int el : g.uniqueColors)
+                System.out.println("el # " + el);
 
             g.print();
             g.getDegrees();
