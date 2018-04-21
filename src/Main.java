@@ -1,0 +1,44 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String [] args){
+        try{
+            File f = new File("sample.txt");
+            Scanner scanner = new Scanner(f);
+
+            int n, m;
+
+            n = scanner.nextInt();
+            m = scanner.nextInt();
+            int [] col = new int[n];
+
+            Graph g = new Graph(n);
+
+            for(int i=0; i<m; i++){
+                int a = scanner.nextInt();
+                int b = scanner.nextInt();
+                //nodes are numbered 1-->n as opposed to 0-->n-1 so we adjust for our arrays
+                g.addEdge(a-1,b-1);
+            }
+
+            //setting colors of each node
+            for (int j=0; j<n; j++)
+                col[j] = scanner.nextInt();
+
+            g.setColors(col);
+
+            g.print();
+            g.getDegrees();
+            System.out.println(Arrays.toString(g.degrees));
+
+        }
+        catch (FileNotFoundException e){
+            System.out.println("file not found");
+        }
+    }
+
+}
