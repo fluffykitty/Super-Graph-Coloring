@@ -12,6 +12,9 @@ To compile and run the sudoku sample _(on linux systems)_:
 - `javac SudokuEcho.java` to compile sudoku for input
 - `java SudokuEcho | java Main` to run the given sample 
 
+Or to run the sample texts:
+- `cat ../sample.txt | java Main'
+
 To compile and run _(on windows systems)_:
 - travel to src folder
   - ensure java is declared in PATH variable as seen here https://www.java.com/en/download/help/path.xml
