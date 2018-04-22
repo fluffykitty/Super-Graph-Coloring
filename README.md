@@ -17,9 +17,9 @@ To compile and run _(on windows systems)_:
   - ensure java is declared in PATH variable as seen here https://www.java.com/en/download/help/path.xml
   - or from CMD prompt, inside src folder, type `set path=%path%;C:\Program Files\Java\jdk1.5.0_09\bin`
 - `javac Main.java`
-- `javac SudokuEcho.java'
-- 'java SudokuEcho > text.txt' if text.txt does not exist, create an empty text file and name it so 
-- 'type text.txt | java Main' pipe input into Java Main
+- `javac SudokuEcho.java`
+- `java SudokuEcho > text.txt` if text.txt does not exist, create an empty text file and name it so 
+- `type text.txt | java Main` pipe input into Java Main
 
 This pipes the sample sudoku puzzle contained in SudokuEcho into the STDIN of the main class.
 The program accepts any STDIN input following the specifications.
