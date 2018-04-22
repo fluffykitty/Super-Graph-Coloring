@@ -86,6 +86,11 @@ public class SudokuGraphRepresentationGenerator {
                                         0,0,2,0,0,5,8,4,0,
                                         7,0,0,0,0,0,5,0,0};
 
+            for (int idx = 0; idx < sudoku_example.length - 1; idx++){
+                writer.print(sudoku_example[idx] + " ");
+            }
+            writer.print(sudoku_example[sudoku_example.length -1]); //write out the last line
+
             writer.close();
         }
         catch (FileNotFoundException e){
