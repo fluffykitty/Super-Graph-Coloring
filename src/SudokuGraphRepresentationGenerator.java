@@ -1,9 +1,19 @@
+/*
+ *  Rostam Panjshiri
+ *  CMSC 501 Dinh
+ *  VCU Spring 201
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
+//generates a file named sudoku.txt with the relationships
+//represented by a sudoku puzzle
+//along with a sample filling of the board given in the assignment
 public class SudokuGraphRepresentationGenerator {
 
     public static void main(String [] args){

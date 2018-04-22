@@ -1,3 +1,9 @@
+/*
+ *  Rostam Panjshiri
+ *  CMSC 501 Dinh
+ *  VCU Spring 201
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

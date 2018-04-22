@@ -1,7 +1,16 @@
+/*
+ *  Rostam Panjshiri
+ *  CMSC 501 Dinh
+ *  VCU Spring 201
+ */
+
 import java.util.*;
 import java.util.stream.IntStream;
 
 public class Graph {
+    //graph representation
+    //using adjacency matrix
+    //and containing methods necessary to find minimal coloring
 
     int V;
     int [][] graph;
