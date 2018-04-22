@@ -1,13 +1,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String [] args){
         try{
-            File f = new File("sudoku.txt");
-            Scanner scanner = new Scanner(f);
+            //File f = new File("sample.txt");
+            Scanner scanner = new Scanner(System.in);
 
             int n, m;
 
@@ -27,18 +28,25 @@ public class Main {
             for (int j=0; j<n; j++)
                 g.nodeColors[j] = scanner.nextInt();
 
-            for (int el : g.uniqueColors)
-                System.out.println("el # " + el);
+            g.setColors();
+            int initial_size_colors = g.uniqueColors.size();
 
-            g.print();
             g.getDegrees();
-
             g.findMinimalColoring();
-            g.printMinimalColoring();
+
+            //g.printMinimalColoring();
+
+            //1st line of std out
+            int additional_colors_needed = g.uniqueColors.size() - initial_size_colors;
+            System.out.println(additional_colors_needed);
+            //2nd line of std out
+            for(int z=0; z<g.nodeColors.length-1; z++)
+                System.out.print(g.nodeColors[z] + " ");
+            System.out.print(g.nodeColors[g.nodeColors.length-1] + "\n");
 
         }
-        catch (FileNotFoundException e){
-            System.out.println("file not found");
+        catch (Exception e){
+            System.out.println("Check your standard input!");
         }
     }
 

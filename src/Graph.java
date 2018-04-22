@@ -119,7 +119,7 @@ public class Graph {
         }
     }
 
-    void print(){
+    void printGraph(){
         System.out.println("--------------------------------\n" +
                 "-------- Printing Graph --------\n" +
                 "--------------------------------");
@@ -138,5 +138,21 @@ public class Graph {
     void printMinimalColoring(){
         System.out.println("The minimum number of colors needed is: " + uniqueColors.size());
         System.out.println("Minimal coloring is: " + Arrays.toString(nodeColors));
+    }
+
+    void printMinimalSudoku(){
+
+        System.out.println("--------------------------------\n" +
+                "------- Printing Sudoku --------\n" +
+                "--------------------------------");
+
+        for(int i=0; i<9; i++){
+            System.out.print("[  ");
+            for(int j=0; j<9; j++){
+                System.out.print(nodeColors[i*9 + j] + "  ");
+            }
+            System.out.print("]\n");
+        }
+
     }
 }
