@@ -41,16 +41,16 @@ public class SudokuGraphRepresentationGenerator {
                         writer.println(i + " " + (i+20));
                         break;
                     case 2:
-                        writer.println(i + " " + (i+9));
-                        writer.println(i + " " + (i+18));
-                        writer.println(i + " " + (i+11));
-                        writer.println(i + " " + (i+20));
-                        break;
-                    case 3:
-                        writer.println(i + " " + (i+9));
-                        writer.println(i + " " + (i+18));
+                        writer.println(i + " " + (i+8));
+                        writer.println(i + " " + (i+17));
                         writer.println(i + " " + (i+10));
                         writer.println(i + " " + (i+19));
+                        break;
+                    case 3:
+                        writer.println(i + " " + (i+7));
+                        writer.println(i + " " + (i+16));
+                        writer.println(i + " " + (i+8));
+                        writer.println(i + " " + (i+17));
                         break;
                     case 4:
                         writer.println(i + " " + (i+10));
