@@ -17,22 +17,29 @@ public class SudokuGraphRepresentationGenerator {
             writer.println("81 810");
 
             //creating sudoku graph
-            for(int i=0; i<81; i++){
+            for(int i=1; i<=81; i++){
+
+                //horz mod is a modification necessary for 1...n based cell addressing scheme
+                int horz_mod = 9;
+                if (i % 9 == 0)
+                    horz_mod = 0;
 
                 //creating horizontal edges
-                int horz_cap = i + 9 - (i % 9);
-                for (int j = i+1; j < horz_cap; ++j){
+                int horz_cap = i + horz_mod - (i % 9);
+                for (int j = i+1; j <= horz_cap; ++j){
                     writer.println(i + " " + j);
                 }
 
                 //creating columnar edges
-                for (int k = i+9; k < 81; k += 9){
+                for (int k = i+9; k <= 81; k += 9){
                     writer.println(i + " " + k);
                 }
 
                 //creating group edges
                 //determines position within group from top left (1) to bottom right (9)
-                int loc = ( (i % 3) + 1 ) + (3 * ((int)(i / 9) % 3));
+
+                // int loc = ( (i % 3) + 1 ) + (3 * ((int)(i / 9) % 3)); -- works with 0 indexed sudoku cells
+                int loc = ( ((i-1) % 3) + 1 ) + (3 * ((int)((i-1) / 9) % 3));
                 switch (loc){
                     case 1:
                         writer.println(i + " " + (i+10));
@@ -57,7 +64,6 @@ public class SudokuGraphRepresentationGenerator {
                         writer.println(i + " " + (i+11));
                         break;
                     case 5:
-
                         writer.println(i + " " + (i+8));
                         writer.println(i + " " + (i+10));
                         break;
