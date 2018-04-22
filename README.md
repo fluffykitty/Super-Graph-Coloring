@@ -13,7 +13,7 @@ To compile and run the sudoku sample _(on linux systems)_:
 - `java SudokuEcho | java Main` to run the given sample 
 
 Or to run the sample texts:
-- `cat ../sample.txt | java Main'
+- `cat ../sample.txt | java Main`
 
 To compile and run _(on windows systems)_:
 - travel to src folder
