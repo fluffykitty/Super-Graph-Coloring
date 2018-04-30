@@ -9,8 +9,9 @@ Input can be specified and solved as a Sudoku puzzle.
 To compile and run the sudoku sample _(on linux systems)_:
 - travel to src folder
 - `javac Main.java`
-- `javac SudokuEcho.java` to compile sudoku for input
-- `java SudokuEcho | java Main` to run the given sample 
+- `java Main < ../sudoku.txt` to pipe sudoku sample text into stdin of the program
+- `java Main < ../sample.txt` to pipe sample text into stdin of the program
+- or alternatively you can feed input according to STDIN rules
 
 Or to run the sample texts:
 - `cat ../sample.txt | java Main`
@@ -20,9 +21,7 @@ To compile and run _(on windows systems)_:
   - ensure java is declared in PATH variable as seen here https://www.java.com/en/download/help/path.xml
   - or from CMD prompt, inside src folder, type `set path=%path%;C:\Program Files\Java\jdk1.5.0_09\bin`
 - `javac Main.java`
-- `javac SudokuEcho.java`
-- `java SudokuEcho > text.txt` if text.txt does not exist, create an empty text file and name it so 
-- `type text.txt | java Main` pipe input into Java Main
+- `java Main < ../sudoku.txt` to run example texts akin to Linux systems
 
 This pipes the sample sudoku puzzle contained in SudokuEcho into the STDIN of the main class.
 The program accepts any STDIN input following the specifications.
