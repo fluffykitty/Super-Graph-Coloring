@@ -7,7 +7,9 @@
 public class SudokuEcho {
     //echos sudoku puzzle as created in sudokugraphrepresentationgenerator
     //and contained in sudoku.txt
-    //out to std out
+    //out to std out so it can be piped into input
+    //was created because I didn't realize how to redirect text files as standard input
+    //am a dunce
     public static void main(String [] args){
         int n = 81;     // # nodes
         int m = 810;   // # edges

@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String [] args){
         try{
-            //File f = new File("sample.txt");
+            //File f = new File("sudoku.txt");
             Scanner scanner = new Scanner(System.in);
 
             int n, m;
@@ -50,8 +50,12 @@ public class Main {
                 System.out.print(g.nodeColors[z] + " ");
             System.out.print(g.nodeColors[g.nodeColors.length-1] + "\n");
 
+            //uncomment to print a beautiful sudoku puzzle
+            //as long as input is in sudoku format
+            //g.printMinimalSudoku();
+
         }
-        catch (Exception e){
+        catch (ArithmeticException e){
             System.out.println("Check your standard input!");
         }
     }

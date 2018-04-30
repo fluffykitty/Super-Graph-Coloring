@@ -115,7 +115,10 @@ public class Graph {
         if (!colorsAvailable.isEmpty()) {
             Iterator<Integer> it = colorsAvailable.iterator();
             kolor = it.next();
-        } else {
+        } else if (uniqueColors.isEmpty()){
+            kolor = 1;
+        }
+        else {
             kolor = Collections.max(uniqueColors) + 1;
         }
         nodeColors[node] = kolor;
