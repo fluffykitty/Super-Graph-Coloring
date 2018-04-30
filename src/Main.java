@@ -7,13 +7,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String [] args){
         try{
-            //File f = new File("sudoku.txt");
             Scanner scanner = new Scanner(System.in);
 
             int n, m;
@@ -37,11 +38,23 @@ public class Main {
             g.setColors();
             int initial_size_colors = g.uniqueColors.size();
 
+            /** FOR TIMING */
+//            final long startTime = System.currentTimeMillis();
+
             g.getDegrees();
             g.findMinimalColoring();
 
-            //g.printMinimalColoring();
+            g.getDegrees();
+//            int maxDegree = Arrays.stream(g.degrees).max().getAsInt();
+//            final long endTime = System.currentTimeMillis();
 
+            System.out.println(" ");
+//            g.printMinimalColoring();
+
+//            System.out.println("\nMax degree: " + maxDegree);
+//            System.out.println("Total execution time: " + (endTime - startTime) + " milliseconds");
+
+            /** Printing to specified format */
             //1st line of std out
             int additional_colors_needed = g.uniqueColors.size() - initial_size_colors;
             System.out.println(additional_colors_needed);
@@ -52,7 +65,7 @@ public class Main {
 
             //uncomment to print a beautiful sudoku puzzle
             //as long as input is in sudoku format
-            //g.printMinimalSudoku();
+//            g.printMinimalSudoku();
 
         }
         catch (ArithmeticException e){

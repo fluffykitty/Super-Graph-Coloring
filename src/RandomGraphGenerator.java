@@ -15,8 +15,12 @@ public class RandomGraphGenerator {
             PrintWriter writer = new PrintWriter("text.txt", "UTF-8");
             int n = 0;
 
-            System.out.print("Number of nodes: ");
-            n = scanner.nextInt();
+            if (args.length == 0){
+                System.out.print("Number of nodes: ");
+                n = scanner.nextInt();
+            } else {
+                n = Integer.parseInt(args[0]);
+            }
 
             int m = (n*(n-1))/10;
             Graph g = new Graph(n);

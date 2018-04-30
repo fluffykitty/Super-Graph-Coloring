@@ -154,6 +154,8 @@ public class Graph {
 
     void printMinimalSudoku(){
 
+        System.out.println("The minimum number of colors needed is: " + uniqueColors.size());
+
         System.out.println("--------------------------------\n" +
                 "------- Printing Sudoku --------\n" +
                 "--------------------------------");
